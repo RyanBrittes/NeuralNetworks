@@ -1,2 +1,2 @@
-# NeuralNetworking
+# NeuralNetworks
 Application of Neural Networks
