@@ -30,3 +30,4 @@ class Backward():
         grads = {"d_weights_01": d_weights_01, "d_bias_01": d_bias_01, "d_weights_02": d_weights_02, "d_bias_02": d_bias_02}
 
         return grads
+    

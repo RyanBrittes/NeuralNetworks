@@ -44,3 +44,4 @@ class NormalizeData():
             list_value.append(np.exp(raw_value[i]))
 
         return list_value
+    

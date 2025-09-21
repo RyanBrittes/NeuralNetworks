@@ -59,3 +59,4 @@ class LoadData():
         bias_02 = np.zeros((len_y, 1))
 
         return {"weights_01": weights_01, "bias_01": bias_01, "weights_02": weights_02, "bias_02": bias_02}
+    
