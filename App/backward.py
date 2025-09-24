@@ -8,11 +8,10 @@ class Backward():
         return 1 / (1 + np.exp(-Z))
     
     def get_back_sigmoid(self, dA, Z):
-        x = self.get_back_sigmoid(Z)
+        x = self.get_sigmoid(Z)
         return dA * x * (1 - x)
     
-    def calc_backward(self, X, Y, parameters, cache):
-        n_sample = X.shape(1)
+    def calc_backward(self, X, Y, parameters, cache, n_sample):
         weights_02 = parameters["weights_02"]
 
         out_01, out_02 = cache["out_01"], cache["out_02"]
@@ -25,7 +24,7 @@ class Backward():
         d_out_01 = np.dot(weights_02.T, d_regression_02)
         d_regression_01 = self.get_back_reLU(d_out_01, regression_01)
         d_weights_01 = (np.dot(d_regression_01, X.T)) / n_sample
-        d_bias_01 = (np.sum(d_regression_01, axis=1, keepdims=True))
+        d_bias_01 = (np.sum(d_regression_01, axis=1, keepdims=True)) / n_sample
 
         grads = {"d_weights_01": d_weights_01, "d_bias_01": d_bias_01, "d_weights_02": d_weights_02, "d_bias_02": d_bias_02}
 

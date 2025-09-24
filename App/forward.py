@@ -5,6 +5,7 @@ class Forward():
         return np.maximum(0, Z)
 
     def get_sigmoid(self, Z):
+        Z = np.clip(Z, -250, 250)
         return 1 / (1 + np.exp(-Z))
 
     def calc_forward(self, X, parameters):
@@ -18,5 +19,5 @@ class Forward():
 
         cache = {"regression_01": regression_01, "out_01": out_01, "regression_02": regression_02, "out_02": out_02}
         
-        return out_02, cache
+        return [out_02, cache]
     
